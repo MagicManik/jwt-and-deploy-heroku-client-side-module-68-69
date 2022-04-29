@@ -1,0 +1,10 @@
+.social-login button {
+    display: block;
+    border: none;
+    width: 100%;
+    margin: 10px auto;
+    padding: 7px;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(6, 135, 255);
+}

@@ -1,0 +1,15 @@
+.methord-divided {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.methord-divided p {
+    margin: 18px;
+}
+
+.methord-divided-border {
+    border-bottom: 1px solid #FF9900;
+    width: 200px;
+    height: 0.9px;
+}

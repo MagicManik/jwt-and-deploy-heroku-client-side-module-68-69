@@ -1,0 +1,22 @@
+.navbar-bg {
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.568);
+    /* background: rgba(234, 226, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(20px); */
+    border-bottom: 1px solid rgba(134, 134, 139, .4);
+}
+
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url(./icons8-menu\ \(1\).svg) !important;
+}
+
+.navbar-light .navbar-toggler {
+    color: red !important;
+    /* border-color: red !important; */
+    border: none !important;
+}
+
+.navbar-light .navbar-toggler {
+    box-shadow: none !important;
+}

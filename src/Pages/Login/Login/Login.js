@@ -40,7 +40,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || "/";
 
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
 
 
@@ -58,6 +58,23 @@ const Login = () => {
     const handleLogin = event => {
         event.preventDefault();
         signInWithEmailAndPassword(email, password)
+
+
+        // Post data in server for token purpos
+        fetch('http://localhost:5000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('accessToken', data.accessToken);
+                navigate(from, { replace: true });
+            })
+
     }
 
     return (

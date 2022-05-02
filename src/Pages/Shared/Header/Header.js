@@ -15,7 +15,7 @@ const Header = () => {
     };
 
     return (
-        <Navbar className='navbar-bg p-0' sticky='top' collapseOnSelect expand="lg">
+        <Navbar className='navbar-bg' sticky='top' collapseOnSelect expand="lg">
             <Container>
                 <Navbar.Brand as={Link} className='text-primary' to="/"><h6>Genius Car Service</h6></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -28,12 +28,16 @@ const Header = () => {
                         {/* টার্নারি অপারেটর ইউজ করা হয়েছে। যদি ইউজার থাকে তাহলে প্রথম div টা দেখাবে আর যদি ইউজার না থাকে তাহলে পরের div টা দেখাবে। */}
                         {
                             user ?
+
                                 <div className='d-flex justify-content-center flex-lg-row flex-column align-items-center'>
+                                    <Nav.Link className='text-black' as={Link} to="/orders">Orders</Nav.Link>
                                     <Nav.Link className='text-black' as={Link} to="/addservice">Add service</Nav.Link>
                                     <Nav.Link className='text-black' as={Link} to="/manageservices">Manage Services</Nav.Link>
                                     <button onClick={logout}>Log Out</button>
                                 </div>
+
                                 :
+
                                 <div className='d-flex justify-content-center flex-lg-row flex-column align-items-center'>
                                     <Nav.Link className='text-black' as={Link} to="/login">
                                         Login
@@ -42,6 +46,7 @@ const Header = () => {
                                         Register
                                     </Nav.Link>
                                 </div>
+
                         }
                         <Nav.Link className='text-black mx-auto' as={Link} to="/about">About</Nav.Link>
                     </Nav>

@@ -61,7 +61,7 @@ const Login = () => {
 
 
         // Post data in server for token purpos
-        fetch('http://localhost:5000/login', {
+        fetch('https://obscure-plains-92918.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
@@ -26,40 +27,49 @@ const Checkout = () => {
     const handleOrderPlace = event => {
         event.preventDefault();
 
-        const name = user.name;
-        const email = user.email;
-        const serviceName = service.name;
-        const id = service._id;
-        const address = event.target.address.value;
-        const phone = event.target.address.value;
+        // const name = user.name;
+        // const email = user.email;
+        // const serviceName = service.name;
+        // const id = service._id;
+        // const address = event.target.address.value;
+        // const phone = event.target.address.value;
 
-        const order = { name, email, serviceName, id, address, phone }
+        // const order = { name, email, serviceName, id, address, phone }
 
-        // const order = {
-        //     name: user.name,
-        //     email: user.email,
-        //     service: service.name,
-        //     serviceId: service._id,
-        //     address: event.target.address.value,
-        //     phone: event.target.phone.value
-        // }
+        const order = {
+            name: user.name,
+            email: user.email,
+            serviceName: service.name,
+            serviceId: serviceId,
+            address: event.target.address.value,
+            phone: event.target.phone.value
+        }
 
-
-        fetch('http://localhost:5000/order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(order)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
+        axios.post('http://localhost:5000/order', order)
+            .then(respons => {
+                const { data } = respons;
                 if (data.insertedId) {
-                    alert('Your order is booked!!')
+                    alert('Your Order Is Booked !!')
                     event.target.reset();
                 }
             })
+
+
+        // fetch('http://localhost:5000/order', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(order)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data)
+        //         if (data.insertedId) {
+        //             alert('Your order is booked!!')
+        //             event.target.reset();
+        //         }
+        //     })
     }
 
 
